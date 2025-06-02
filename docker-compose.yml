@@ -1,0 +1,44 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      API_GEMINI_TOKEN: ${API_GEMINI_TOKEN}
+    networks:
+      - backend
+    restart:
+      on-failure
+    volumes:
+      - ./logs/app/logs
+  db:
+    image: mongo
+    restart: always
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+        MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+        - "27017:27017"
+    volumes:
+        - mongo-data:/data/db
+    networks:
+      - backend
+  mongo-express:
+    image: mongo-express
+    restart: always
+    environment:
+        ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+        ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+        - "8081:8081"
+    depends_on:
+        - db
+
+volumes:
+  mongo-data:
+networks:
+  backend:
+    driver: bridge
