@@ -28,7 +28,7 @@ services:
     networks:
       - backend
     healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.runCommand('ping').ok"]
+      test: [ "CMD", "sh", "-c", "mongo --disableImplicitCollectionCreation --eval 'db.runCommand(\"ping\").ok'" ]
       interval: 10s
       timeout: 5s
       retries: 5

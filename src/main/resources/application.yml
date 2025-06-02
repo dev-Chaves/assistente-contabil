@@ -7,7 +7,7 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/nfe_db?authSource=admin
+      uri: ${SPRING_DATA_MONGODB_URI}
 
 api:
   gemini:
