@@ -15,7 +15,7 @@ services:
         condition: service_healthy
 
   db:
-    image: mongo
+    image: mongo:latest
     container_name: nfe-mongodb
     restart: always
     environment:
@@ -28,25 +28,10 @@ services:
     networks:
       - backend
     healthcheck:
-      test: [ "CMD", "sh", "-c", "mongo --disableImplicitCollectionCreation --eval 'db.runCommand(\"ping\").ok'" ]
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
       interval: 10s
       timeout: 5s
       retries: 5
-
-  mongo-express:
-    image: mongo-express
-    container_name: nfe-mongo-express
-    restart: always
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME}
-      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
-      ME_CONFIG_MONGODB_SERVER: db #
-      ME_CONFIG_MONGODB_PORT: 27017
-    ports:
-      - "8081:8081"
-    depends_on:
-      db:
-        condition: service_healthy
 
 volumes:
   mongo-data:
