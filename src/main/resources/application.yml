@@ -1,0 +1,19 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: assistente-contabil
+
+  data:
+    mongodb:
+      uri: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/nfe_db?authSource=admin
+
+api:
+  gemini:
+    token: ${API_GEMINI_TOKEN}
+
+#nfe:
+#  xml:
+#    input:
+#      directory: /app/nfe_entrada_simulacao
