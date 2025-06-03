@@ -29,4 +29,12 @@ public class NFe {
     public void setSignature(Signature signature) {
         this.signature = signature;
     }
+
+    @Override
+    public String toString() {
+        return "NFe{" +
+                "infNFe=" + infNFe +
+                ", signature=" + signature +
+                '}';
+    }
 }
