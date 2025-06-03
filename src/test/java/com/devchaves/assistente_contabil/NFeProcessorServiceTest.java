@@ -2,6 +2,7 @@ package com.devchaves.assistente_contabil;
 
 import com.devchaves.assistente_contabil.nfe.model.NFe;
 import com.devchaves.assistente_contabil.services.NFeProcessorService;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +20,9 @@ public class NFeProcessorServiceTest {
 
     @BeforeEach
     void setUp(){
-        nFeProcessorService = new NFeProcessorService(new XmlMapper(), new ObjectMapper());
+        XmlMapper xmlMapper = new XmlMapper();
+        xmlMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        nFeProcessorService = new NFeProcessorService(xmlMapper, new ObjectMapper());
     }
 
     @Test
@@ -29,10 +32,12 @@ public class NFeProcessorServiceTest {
 
         String xml = Files.readString(path);
 
+        System.out.println("XML: " + xml);
+
         NFe nFe = nFeProcessorService.readXml(xml, NFe.class);
 
         assertNotNull(nFe);
-        assertNotNull(nFeProcessorService.getInfNFe());
+        assertNotNull(nFe.getInfNFe());
 
     }
 
