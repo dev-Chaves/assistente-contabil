@@ -1,6 +1,7 @@
 package com.devchaves.assistente_contabil.services;
 
 import com.devchaves.assistente_contabil.nfe.model.NFe;
+import com.devchaves.assistente_contabil.repository.NFeRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,14 @@ public class NFeProcessorService {
 
     private final XmlMapper xmlMapper;
     private final ObjectMapper objectMapper;
+    private final NFeRepository nfeRepository;
 
     Path path = Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "nfe", "nfe_exemplo_v4.xml");
 
-    public NFeProcessorService(XmlMapper xmlMapper, ObjectMapper objectMapper) {
+    public NFeProcessorService(XmlMapper xmlMapper, ObjectMapper objectMapper, NFeRepository nfeRepository) {
         this.xmlMapper = xmlMapper;
         this.objectMapper = objectMapper;
+        this.nfeRepository = nfeRepository;
     }
 
     public  <T> T deserialiseXml(String xml, Class<T> classType){

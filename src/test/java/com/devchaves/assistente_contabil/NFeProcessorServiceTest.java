@@ -23,7 +23,7 @@ public class NFeProcessorServiceTest {
     void setUp(){
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        nFeProcessorService = new NFeProcessorService(xmlMapper, new ObjectMapper());
+        nFeProcessorService = new NFeProcessorService(xmlMapper, new ObjectMapper(), null);
     }
 
     @Test
