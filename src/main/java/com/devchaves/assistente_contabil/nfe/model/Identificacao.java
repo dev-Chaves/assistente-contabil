@@ -27,6 +27,9 @@ public class Identificacao {
     @JacksonXmlProperty(localName = "dEmi")
     private String dEmi;
 
+    @JacksonXmlProperty(localName = "dhEmi")
+    private String dhEmi;
+
     @JacksonXmlProperty(localName = "dSaiEnt")
     private String dSaiEnt;
 
@@ -56,6 +59,15 @@ public class Identificacao {
 
     @JacksonXmlProperty(localName = "verProc")
     private String verProc;
+
+    @JacksonXmlProperty(localName = "idDest")
+    private String idDest;
+
+    @JacksonXmlProperty(localName = "indFinal")
+    private String indFinal;
+
+    @JacksonXmlProperty(localName = "indPres")
+    private String indPres;
 
     public Identificacao() {
     }
@@ -202,5 +214,29 @@ public class Identificacao {
 
     public void setVerProc(String verProc) {
         this.verProc = verProc;
+    }
+
+    public String getIdDest() {
+        return idDest;
+    }
+
+    public void setIdDest(String idDest) {
+        this.idDest = idDest;
+    }
+
+    public String getIndFinal() {
+        return indFinal;
+    }
+
+    public void setIndFinal(String indFinal) {
+        this.indFinal = indFinal;
+    }
+
+    public String getIndPres() {
+        return indPres;
+    }
+
+    public void setIndPres(String indPres) {
+        this.indPres = indPres;
     }
 }

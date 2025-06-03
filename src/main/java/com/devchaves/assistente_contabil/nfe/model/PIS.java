@@ -1,7 +1,6 @@
 package com.devchaves.assistente_contabil.nfe.model;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import lombok.Data;
 
 public class PIS {
     @JacksonXmlProperty(localName = "PISAliq")
