@@ -1,9 +1,7 @@
 package com.devchaves.assistente_contabil.nfe.model;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import lombok.Data;
 
-@Data
 public class Destinatario {
     @JacksonXmlProperty(localName = "CNPJ")
     private String cnpj;
@@ -16,4 +14,39 @@ public class Destinatario {
 
     @JacksonXmlProperty(localName = "IE")
     private String ie;
+
+    public Destinatario() {
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public String getxNome() {
+        return xNome;
+    }
+
+    public void setxNome(String xNome) {
+        this.xNome = xNome;
+    }
+
+    public Endereco getEnderDest() {
+        return enderDest;
+    }
+
+    public void setEnderDest(Endereco enderDest) {
+        this.enderDest = enderDest;
+    }
+
+    public String getIe() {
+        return ie;
+    }
+
+    public void setIe(String ie) {
+        this.ie = ie;
+    }
 }
