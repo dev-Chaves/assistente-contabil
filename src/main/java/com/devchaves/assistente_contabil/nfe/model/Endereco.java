@@ -1,13 +1,10 @@
-package com.devchaves.assistente_contabil.pojo;
+package com.devchaves.assistente_contabil.nfe.model;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Data;
 
 @Data
-public class LocalEntrega {
-    @JacksonXmlProperty(localName = "CNPJ")
-    private String cnpj;
-
+public class Endereco {
     @JacksonXmlProperty(localName = "xLgr")
     private String xLgr;
 
@@ -28,4 +25,16 @@ public class LocalEntrega {
 
     @JacksonXmlProperty(localName = "UF")
     private String uf;
+
+    @JacksonXmlProperty(localName = "CEP")
+    private String cep;
+
+    @JacksonXmlProperty(localName = "cPais")
+    private String cPais;
+
+    @JacksonXmlProperty(localName = "xPais")
+    private String xPais;
+
+    @JacksonXmlProperty(localName = "fone")
+    private String fone;
 }
