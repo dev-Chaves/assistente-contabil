@@ -1,5 +1,6 @@
 package com.devchaves.assistente_contabil.services;
 
+import com.devchaves.assistente_contabil.nfe.model.NFe;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.springframework.stereotype.Service;
@@ -23,21 +24,39 @@ public class NFeProcessorService {
         this.objectMapper = objectMapper;
     }
 
-    public  <T> T readXml(String xml, Class<T> classType){
+    public  <T> T deserialiseXml(String xml, Class<T> classType){
         try {
             return xmlMapper.readValue(xml , classType);
         }catch (Exception e){
-            throw new RuntimeException("Error reading XML: " + e.getMessage(), e);
+            throw new RuntimeException("Error ao ler o XML: " + e.getMessage(), e);
         }
     }
 
-    public void printXml(String xml) {
-        try {
-            String lines = Files.readString(path);
-            System.out.println("XML Content: " + lines);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public String processarObjetoParaJson (Object nfe) {
+        try{
+            String nfeJson = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(nfe);
+
+            System.out.println("Objeto convertido para JSON: " + nfeJson);
+
+
+            return nfeJson;
+
+        }catch (IOException e){
+            throw new RuntimeException("Error ao converter objeto para JSON: " + e.getMessage(), e);
         }
     }
+
+    public void processarNfeXmlFile (String filePath) {
+        try {
+            String xmlContent = Files.readString(Paths.get(filePath));
+            NFe nfe = deserialiseXml(xmlContent, NFe.class);
+            System.out.println("Processed NFe: " + nfe);
+        } catch (IOException e) {
+            throw new RuntimeException("Error ao ler o arquivo: " + e.getMessage(), e);
+        } catch (Exception e){
+            throw new RuntimeException("Error ao processar a NFe: " + e.getMessage(), e);
+        }
+    }
+
 
 }

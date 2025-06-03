@@ -34,7 +34,10 @@ public class NFeProcessorServiceTest {
 
         System.out.println("XML: " + xml);
 
-        NFe nFe = nFeProcessorService.readXml(xml, NFe.class);
+        NFe nFe = nFeProcessorService.deserialiseXml(xml, NFe.class);
+
+        System.out.println("XML Object: " + nFe);
+
 
         assertNotNull(nFe);
         assertNotNull(nFe.getInfNFe());
