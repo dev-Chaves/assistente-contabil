@@ -39,4 +39,7 @@ public class InfNFe {
 
     @JacksonXmlProperty(localName = "infAdic")
     private InformacoesAdicionais infAdic;
+
+    @JacksonXmlProperty(localName = "infRespTec")
+    private InformacoesResponsavelTecnico infRespTec;
 }
