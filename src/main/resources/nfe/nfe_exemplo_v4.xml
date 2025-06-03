@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+    <infNFe Id="NFe99999999999999999999999999999999999999999999" versao="4.00">
+        <ide>
+            <cUF>35</cUF>
+            <cNF>12345678</cNF>
+            <natOp>Venda</natOp>
+            <mod>55</mod>
+            <serie>1</serie>
+            <nNF>100</nNF>
+            <dhEmi>2025-06-03T14:30:00-03:00</dhEmi>
+            <tpNF>1</tpNF>
+            <idDest>1</idDest>
+            <cMunFG>3550308</cMunFG>
+            <tpImp>1</tpImp>
+            <tpEmis>1</tpEmis>
+            <cDV>9</cDV>
+            <tpAmb>2</tpAmb>
+            <finNFe>1</finNFe>
+            <indFinal>1</indFinal>
+            <indPres>1</indPres>
+            <procEmi>0</procEmi>
+            <verProc>SistemaTeste</verProc>
+        </ide>
+        <emit>
+            <CNPJ>12345678000100</CNPJ>
+            <xNome>Empresa Teste LTDA</xNome>
+            <xFant>Empresa Teste</xFant>
+            <enderEmit>
+                <xLgr>Rua Exemplo</xLgr>
+                <nro>100</nro>
+                <xCpl>Sala 1</xCpl>
+                <xBairro>Centro</xBairro>
+                <cMun>3550308</cMun>
+                <xMun>São Paulo</xMun>
+                <UF>SP</UF>
+                <CEP>01001000</CEP>
+                <cPais>1058</cPais>
+                <xPais>Brasil</xPais>
+                <fone>1130000000</fone>
+            </enderEmit>
+            <IE>123456789</IE>
+        </emit>
+        <dest>
+            <CNPJ>00000000000191</CNPJ>
+            <xNome>Cliente Exemplo SA</xNome>
+            <enderDest>
+                <xLgr>Av Cliente</xLgr>
+                <nro>200</nro>
+                <xCpl>Prédio A</xCpl>
+                <xBairro>Comercial</xBairro>
+                <cMun>3550308</cMun>
+                <xMun>São Paulo</xMun>
+                <UF>SP</UF>
+                <CEP>02002000</CEP>
+                <cPais>1058</cPais>
+                <xPais>Brasil</xPais>
+                <fone>11999999999</fone>
+            </enderDest>
+            <IE>ISENTO</IE>
+        </dest>
+        <det nItem="1">
+            <prod>
+                <cProd>001</cProd>
+                <xProd>Produto Teste</xProd>
+                <CFOP>5102</CFOP>
+                <uCom>UN</uCom>
+                <qCom>10.00</qCom>
+                <vUnCom>50.00</vUnCom>
+                <vProd>500.00</vProd>
+                <uTrib>UN</uTrib>
+                <qTrib>10.00</qTrib>
+                <vUnTrib>50.00</vUnTrib>
+            </prod>
+            <imposto>
+                <ICMS>
+                    <ICMS00>
+                        <orig>0</orig>
+                        <CST>00</CST>
+                        <modBC>3</modBC>
+                        <vBC>500.00</vBC>
+                        <pICMS>18.00</pICMS>
+                        <vICMS>90.00</vICMS>
+                    </ICMS00>
+                </ICMS>
+                <PIS>
+                    <PISAliq>
+                        <CST>01</CST>
+                        <vBC>500.00</vBC>
+                        <pPIS>0.65</pPIS>
+                        <vPIS>3.25</vPIS>
+                    </PISAliq>
+                </PIS>
+                <COFINS>
+                    <COFINSAliq>
+                        <CST>01</CST>
+                        <vBC>500.00</vBC>
+                        <pCOFINS>3.00</pCOFINS>
+                        <vCOFINS>15.00</vCOFINS>
+                    </COFINSAliq>
+                </COFINS>
+            </imposto>
+        </det>
+        <total>
+            <ICMSTot>
+                <vBC>500.00</vBC>
+                <vICMS>90.00</vICMS>
+                <vProd>500.00</vProd>
+                <vPIS>3.25</vPIS>
+                <vCOFINS>15.00</vCOFINS>
+                <vNF>500.00</vNF>
+            </ICMSTot>
+        </total>
+        <infRespTec>
+            <CNPJ>12345678000100</CNPJ>
+            <xContato>João Dev</xContato>
+            <email>joao@teste.com.br</email>
+            <fone>11988887777</fone>
+            <idCSRT>01</idCSRT>
+            <hashCSRT>ABCD1234EFGH5678</hashCSRT>
+        </infRespTec>
+    </infNFe>
+</NFe>
