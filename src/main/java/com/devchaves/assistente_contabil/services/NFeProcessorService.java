@@ -17,7 +17,7 @@ public class NFeProcessorService {
     private final XmlMapper xmlMapper;
     private final ObjectMapper objectMapper;
 
-    Path path = Path.of("C:\\Users\\ORC\\IdeaProjects\\assistente-contabil\\src\\main\\resources\\nfe\\nfe_exemplo_v4.xml");
+    Path path = Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "nfe", "nfe_exemplo_v4.xml");
 
     public NFeProcessorService(XmlMapper xmlMapper, ObjectMapper objectMapper) {
         this.xmlMapper = xmlMapper;
@@ -26,6 +26,15 @@ public class NFeProcessorService {
 
     public  <T> T deserialiseXml(String xml, Class<T> classType){
         try {
+
+            if (xml == null || xml.isEmpty()) {
+                throw new IllegalArgumentException("O XML fornecido está vazio ou nulo.");
+            }
+
+            if (classType == null) {
+                throw new IllegalArgumentException("O tipo de classe fornecido é nulo.");
+            }
+
             return xmlMapper.readValue(xml , classType);
         }catch (Exception e){
             throw new RuntimeException("Error ao ler o XML: " + e.getMessage(), e);
@@ -38,9 +47,7 @@ public class NFeProcessorService {
 
             System.out.println("Objeto convertido para JSON: " + nfeJson);
 
-
             return nfeJson;
-
         }catch (IOException e){
             throw new RuntimeException("Error ao converter objeto para JSON: " + e.getMessage(), e);
         }
