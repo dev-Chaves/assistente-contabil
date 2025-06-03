@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -28,8 +29,11 @@ public class NFeProcessorServiceTest {
     @Test
     void deveLerXml() throws IOException {
 
-        Path path = Path.of("C:\\Users\\ORC\\IdeaProjects\\assistente-contabil\\src\\main\\resources\\nfe\\nfe_exemplo_v4.xml");
+        Path path = Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "nfe", "nfe_exemplo_v4.xml");
 
+        if (!Files.exists(path)) {
+            throw new IOException("Arquivo XML não encontrado: " + path.toString());
+        }
         String xml = Files.readString(path);
 
         System.out.println("XML: " + xml);
