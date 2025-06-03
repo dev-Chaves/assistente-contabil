@@ -44,5 +44,20 @@ public class NFeProcessorServiceTest {
 
     }
 
+    @Test
+    void deveProcessarNFeXml() {
+        String filePath = "C:\\Users\\ORC\\IdeaProjects\\assistente-contabil\\src\\main\\resources\\nfe\\nfe_exemplo_v4.xml";
+        nFeProcessorService.processarNfeXmlFile(filePath);
+    }
+
+    @Test
+    void deveConverterObjetoParaJson() throws IOException {
+        Path path = Path.of("C:\\Users\\ORC\\IdeaProjects\\assistente-contabil\\src\\main\\resources\\nfe\\nfe_exemplo_v4.xml");
+        String xml = Files.readString(path);
+        NFe nFe = nFeProcessorService.deserialiseXml(xml, NFe.class);
+        String json = nFeProcessorService.processarObjetoParaJson(nFe);
+        System.out.println("JSON: " + json);
+    }
+
 
 }
