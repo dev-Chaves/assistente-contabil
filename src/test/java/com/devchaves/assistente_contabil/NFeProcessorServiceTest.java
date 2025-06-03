@@ -42,21 +42,22 @@ public class NFeProcessorServiceTest {
 
         System.out.println("XML Object: " + nFe);
 
-
         assertNotNull(nFe);
         assertNotNull(nFe.getInfNFe());
-
     }
 
     @Test
     void deveProcessarNFeXml() {
-        String filePath = "C:\\Users\\ORC\\IdeaProjects\\assistente-contabil\\src\\main\\resources\\nfe\\nfe_exemplo_v4.xml";
+        Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "nfe", "nfe_exemplo_v4.xml");
+
+        var filePath = Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "nfe", "nfe_exemplo_v4.xml").toString();
+
         nFeProcessorService.processarNfeXmlFile(filePath);
     }
 
     @Test
     void deveConverterObjetoParaJson() throws IOException {
-        Path path = Path.of("C:\\Users\\ORC\\IdeaProjects\\assistente-contabil\\src\\main\\resources\\nfe\\nfe_exemplo_v4.xml");
+        Path path = Paths.get(System.getProperty("user.dir"), "src", "main", "resources", "nfe", "nfe_exemplo_v4.xml");
         String xml = Files.readString(path);
         NFe nFe = nFeProcessorService.deserialiseXml(xml, NFe.class);
         String json = nFeProcessorService.processarObjetoParaJson(nFe);
