@@ -60,7 +60,7 @@ public class NFeProcessorService {
         try {
             String xmlContent = Files.readString(Paths.get(filePath));
             NFe nfe = deserialiseXml(xmlContent, NFe.class);
-            System.out.println("Processed NFe: " + nfe);
+            System.out.println("NFe processada: " + nfe);
         } catch (IOException e) {
             throw new RuntimeException("Error ao ler o arquivo: " + e.getMessage(), e);
         } catch (Exception e){
