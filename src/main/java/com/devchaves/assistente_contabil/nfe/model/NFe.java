@@ -3,8 +3,10 @@ package com.devchaves.assistente_contabil.nfe.model;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @JacksonXmlRootElement(namespace = "http://www.portalfiscal.inf.br/nfe")
+@Document(collection = "nfe")
 public class NFe {
 
     @Id
