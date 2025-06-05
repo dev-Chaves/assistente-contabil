@@ -3,7 +3,7 @@ services:
     build: .
     container_name: nfe-api
     ports:
-      - "8000:8000"
+      - "8080:8080"
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/nfe_db?authSource=admin
       GEMINI_API_KEY: ${GEMINI_API_KEY}
@@ -34,8 +34,25 @@ services:
       timeout: 5s
       retries: 5
 
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: nfe-chromadb
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma-data:/app/chroma_data
+    networks:
+      - backend
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
 volumes:
   mongo-data:
+  chroma-data:
 
 networks:
   backend:
