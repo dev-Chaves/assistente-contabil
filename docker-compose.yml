@@ -6,7 +6,7 @@ services:
       - "8000:8000"
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/nfe_db?authSource=admin
-      API_GEMINI_TOKEN: ${API_GEMINI_TOKEN}
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
     networks:
       - backend
     restart: on-failure
