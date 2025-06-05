@@ -1,6 +1,6 @@
 package com.devchaves.assistente_contabil;
 
-import com.devchaves.assistente_contabil.nfe.model.NFe;
+import com.devchaves.assistente_contabil.model.nfe.NFe;
 import com.devchaves.assistente_contabil.services.NFeProcessorService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

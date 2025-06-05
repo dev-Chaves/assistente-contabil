@@ -1,4 +1,4 @@
-package com.devchaves.assistente_contabil.nfe.model;
+package com.devchaves.assistente_contabil.model.nfe;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import java.util.List;

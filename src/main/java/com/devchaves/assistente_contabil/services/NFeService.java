@@ -1,6 +1,6 @@
 package com.devchaves.assistente_contabil.services;
 
-import com.devchaves.assistente_contabil.nfe.model.NFe;
+import com.devchaves.assistente_contabil.model.nfe.NFe;
 import com.devchaves.assistente_contabil.repository.NFeRepository;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;

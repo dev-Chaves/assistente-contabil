@@ -1,7 +1,7 @@
 package com.devchaves.assistente_contabil;
 
 
-import com.devchaves.assistente_contabil.nfe.model.NFe;
+import com.devchaves.assistente_contabil.model.nfe.NFe;
 import com.devchaves.assistente_contabil.repository.NFeRepository;
 import com.devchaves.assistente_contabil.services.NFeProcessorService;
 import com.devchaves.assistente_contabil.services.NFeService;
