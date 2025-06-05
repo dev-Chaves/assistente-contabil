@@ -13,6 +13,18 @@ api:
   gemini:
     token: ${API_GEMINI_TOKEN}
 
+ai:
+  vertex:
+    ai:
+      gemini:
+        project-id: ${GEMINI_PROJECT_ID}
+        location: us-east4
+        chat:
+          options:
+            model: gemini-2.0-flash
+            temperature: 0.5
+
+
 #nfe:
 #  xml:
 #    input:
