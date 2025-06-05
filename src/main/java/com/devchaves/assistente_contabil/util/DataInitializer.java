@@ -3,14 +3,13 @@ package com.devchaves.assistente_contabil.util;
 import com.devchaves.assistente_contabil.repository.NFeRepository;
 import com.devchaves.assistente_contabil.services.NFeProcessorService;
 import com.devchaves.assistente_contabil.services.NFeService;
+import com.google.genai.Client;
+import com.google.genai.types.GenerateContentResponse;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
@@ -18,11 +17,13 @@ public class DataInitializer implements CommandLineRunner {
     private final NFeService nfeService;
     private final NFeProcessorService nFeProcessorService;
     private final NFeRepository nfeRepository;
+    private final Client client;
 
-    public DataInitializer(NFeService nfeService, NFeProcessorService nFeProcessorService, NFeRepository nfeRepository) {
+    public DataInitializer(NFeService nfeService, NFeProcessorService nFeProcessorService, NFeRepository nfeRepository, Client client) {
         this.nfeService = nfeService;
         this.nFeProcessorService = nFeProcessorService;
         this.nfeRepository = nfeRepository;
+        this.client = client;
     }
 
     @Override
@@ -45,5 +46,15 @@ public class DataInitializer implements CommandLineRunner {
         }catch (Exception e) {
             System.err.println("Erro ao inicializar os dados: " + e.getMessage());
         }
+
+        GenerateContentResponse response =
+                client.models.generateContent(
+                        "gemini-2.0-flash",
+                        "Me conte uma piada sobre java.",
+                        null
+                );
+
+        System.out.println(response.text());
+
     }
 }
