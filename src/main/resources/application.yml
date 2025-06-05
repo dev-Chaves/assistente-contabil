@@ -16,6 +16,12 @@ spring:
           project-id: ${GEMINI_PROJECT_ID}
           location: southamerica-east1
           api-key: ${GEMINI_API_KEY}
+
+  vectorstore:
+    chroma:
+      url: http://chroma:8000
+      collection: nfe-embeddings
+
 api:
   gemini:
     token: ${API_GEMINI_TOKEN}
