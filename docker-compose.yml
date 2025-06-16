@@ -7,7 +7,7 @@ services:
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@db:27017/nfe_db?authSource=admin
       GEMINI_API_KEY: ${GEMINI_API_KEY}
-      GEMINI_PROJECT_ID: ${GEMINI_PROJECT_ID}
+      GEMINI_PROJECT_ID: assistente-contabil
     networks:
       - backend
     restart: on-failure
@@ -49,6 +49,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
 
 volumes:
   mongo-data:
